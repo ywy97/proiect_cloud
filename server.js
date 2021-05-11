@@ -82,7 +82,7 @@ app.put('/messages/:id', (request, response) => {
         }
     }).catch((err) => {
         console.log(err)
-        response.status(500).send('database error')
+        response.status(500).send('database error')  
     })
 })
 

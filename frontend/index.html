@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Messages</title>
+    </head>
+    <body>
+        <h1>Messages</h1>
+        <div id="content">
+            <table style="width-100%">
+                <tr>
+                    <th>ID</th>
+                    <th>Subject</th>
+                    <th>Name</th>
+                    <th>Message</th>
+                    <th>Actions</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Subject data</td>
+                    <td>Name data</td>
+                    <td>Message data</td>
+                    <td>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+            </table>
+            
+            <form>
+                <input type="hidden" name="id" id="id" /> <br />
+                Name: <br />
+                <input type="text" name="name" id="name" /> <br />
+                Subject: <br />
+                <input type="text" name="subject" id="subject" /> <br />
+                Message: <br />
+                <textarea name="message" id="message"></textarea><br/>
+                <input type="submit" value="Save message">
+                <input type="reset" value="Cancel"
+            </form>
+            
+            <script type="text/javascript">
+                window.onload = () => {
+                    console.log('page loaded')
+                    
+                    showMessages()
+                }
+                
+                async function showMessages() {
+                    let response = await fetch('messages')
+                    let data = await response.json()
+                    console.log(data)
+                }
+            </script>
+        </div>
+    </body>
+</html> 
